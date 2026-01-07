@@ -5,8 +5,8 @@ import { Button } from "./button";
 
 
 const navlinks = [
-    { href: "#casestudies", label: "Case Studies" },
-    { href: "#aboutus", label: "About Us" },
+    { href: "/case", label: "Case Studies" },
+    { href: "/about", label: "About Us" },
 ];
 
 export default function Navbar() {
@@ -31,13 +31,13 @@ export default function Navbar() {
                 className={`flex items-center px-4 py-4 sticky w-full z-50 transition-all duration-500 top-0 ease-in-out 
                     ${scrolled
                         ? " backdrop-blur-3xl shadow-lg bg-black/20 "
-                        : " backdrop-blur-0"}
+                        : "bg-[#e6894f]"}
                 `}
             
             >
                 <div className="px-4  w-full flex justify-start items-center text-center">
 
-                    <h1 className="text-4xl font-bold tracking-tighter font-bricolage-grotesque text-white ">Ryze</h1>
+                    <Link href={"/"} className="text-4xl font-bold tracking-tighter font-bricolage-grotesque text-white ">Ryze</Link>
                     <div className="flex items-center justify-center ml-auto">
                         {navlinks.map((link) => (
                             <Link

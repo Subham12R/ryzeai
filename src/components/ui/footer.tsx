@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="w-full bg-black border-t border-zinc-800 py-12 px-8">
+        <footer className="w-full bg-black  py-12 px-8">
             <div className="max-w-7xl mx-auto flex justify-between items-start">
                 {/* Left Side - Contact & Socials */}
                 <div className="space-y-8">
