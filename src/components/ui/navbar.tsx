@@ -55,7 +55,7 @@ export default function Navbar() {
     }, [isOpen]);
 
     return (
-        <div>
+        
         <nav
             className={`flex items-center px-4 py-4 sticky w-full z-50 transition-all duration-500 top-0 ease-in-out 
                 ${scrolled ? "backdrop-blur-3xl shadow-lg bg-black/20" : "bg-[#e6894f]"}
@@ -88,9 +88,7 @@ export default function Navbar() {
                 </button>
             </div>
             {/* Mobile sidebar dropdown */}
-         
-        </nav>
-           {isOpen && (
+               {isOpen && (
                 <>
                     <div
                         ref={overlayRef}
@@ -127,6 +125,9 @@ export default function Navbar() {
                     </div>
                 </>
             )}
-           </div>
+         
+        </nav>
+        
+           
     );
 }
