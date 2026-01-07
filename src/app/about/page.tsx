@@ -197,7 +197,7 @@ export default function AboutPage() {
               className="text-6xl font-bold text-zinc-900 leading-none"
               style={{ opacity: 0 }}
             >
-              We've run ads at Google, DTC brands, big companies, small agencies.
+              We&apos;ve run ads at Google, DTC brands, big companies, small agencies.
             </h2>
             <p 
               ref={text2Ref}
@@ -210,7 +210,7 @@ export default function AboutPage() {
           
           <div 
             ref={image1Ref}
-            className="w-full h-[500px] relative"
+            className="w-full h-125 relative"
             style={{ opacity: 0 }}
           >
             <Image
@@ -228,7 +228,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-16 mb-16">
             <div 
               ref={image2Ref}
-              className="w-full h-[600px] relative"
+              className="w-full h-150 relative"
               style={{ opacity: 0 }}
             >
               <Image
@@ -260,7 +260,7 @@ export default function AboutPage() {
             Ready to elevate your agency?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of marketers who've transformed their ad management with AI
+            Join thousands of marketers who&apos;ve transformed their ad management with AI
           </p>
           <div className="flex justify-center items-center max-w-xl mx-auto w-full relative">
             <Input 
@@ -294,7 +294,7 @@ export default function AboutPage() {
             {[...galleryImages, ...galleryImages].map((img, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-96 h-96 relative"
+                className="shrink-0 w-96 h-96 relative"
               >
                 <Image
                   src={img}

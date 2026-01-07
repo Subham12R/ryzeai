@@ -15,4 +15,13 @@ const eslintConfig = defineConfig([
   ]),
 ]);
 
+
+// Disallow implicit any for deployment
+eslintConfig.rules = {
+  ...(eslintConfig.rules || {}),
+  '@typescript-eslint/no-explicit-any': 'error',
+  '@typescript-eslint/no-implicit-any': 'error',
+  '@typescript-eslint/explicit-module-boundary-types': 'error',
+};
+
 export default eslintConfig;

@@ -13,8 +13,8 @@ const navlinks = [
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const dropdownRef = useRef(null);
-    const overlayRef = useRef(null);
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
+    const overlayRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -42,12 +42,12 @@ export default function Navbar() {
     
     useEffect(() => {
         if (!isOpen) return;
-        function handleClick(e) {
+        function handleClick(e: MouseEvent) {
             if (
                 dropdownRef.current &&
-                !dropdownRef.current.contains(e.target) &&
+                !(e.target instanceof Node) ? true : !dropdownRef.current.contains(e.target as Node) &&
                 overlayRef.current &&
-                overlayRef.current.contains(e.target)
+                overlayRef.current.contains(e.target as Node)
             ) {
                 setIsOpen(false);
             }
@@ -76,7 +76,7 @@ export default function Navbar() {
                             {link.label}
                         </Link>
                     ))}
-                    <Button className="ml-4 bg-gradient-to-r from-[#1a1a1a] via-[#222222] to-[#282828] hover:bg-gray-500 cursor-pointer active:scale-95 rounded-xl transition-all duration-300 ease-linear">Get Started</Button>
+                    <Button className="ml-4 bg-linear-to-r from-[#1a1a1a] via-[#222222] to-[#282828] hover:bg-gray-500 cursor-pointer active:scale-95 rounded-xl transition-all duration-300 ease-linear">Get Started</Button>
                 </div>
                 {/* Mobile menu button */}
                 <button
@@ -123,7 +123,7 @@ export default function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
-                        <Button className="mt-8 px-8 w-full text-lg font-bold bg-gradient-to-r from-[#1a1a1a] via-[#222222] to-[#282828] hover:bg-gray-500 cursor-pointer active:scale-95 rounded-xl transition-all duration-300 ease-linear shadow-lg" onClick={() => setIsOpen(false)}>
+                        <Button className="mt-8 px-8 w-full text-lg font-bold bg-linear-to-r from-[#1a1a1a] via-[#222222] to-[#282828] hover:bg-gray-500 cursor-pointer active:scale-95 rounded-xl transition-all duration-300 ease-linear shadow-lg" onClick={() => setIsOpen(false)}>
                             Get Started
                         </Button>
                     </div>
