@@ -19,7 +19,6 @@ export default function Home() {
   const heroTitleRef = useRef(null);
   const heroSubtitleRef = useRef(null);
   const heroInputRef = useRef(null);
-  const textHoverRef = useRef(null);
   const marqueeRef = useRef(null);
   
   const section1Ref = useRef(null);
@@ -73,18 +72,7 @@ export default function Home() {
       }
     );
 
-    gsap.fromTo(
-      textHoverRef.current,
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        delay: 0.6,
-        ease: "power3.out",
-      }
-    );
-
+  
     gsap.fromTo(
       marqueeRef.current,
       { opacity: 0 },
@@ -251,7 +239,7 @@ export default function Home() {
         <Navbar />
         <main
           ref={heroRef}
-          className="bg-linear-to-b from-[#e6894f] to-white items-center justify-center text-center flex flex-col w-full min-h-[80vh]"
+          className="bg-linear-to-b from-[#e6894f] to-[#ffffff] items-center justify-center text-center flex flex-col w-full min-h-screen px-8"
         >
           <div className="flex flex-col items-center justify-center flex-1 px-8 text-center mt-20">
             <h1
@@ -276,11 +264,12 @@ export default function Home() {
                 Get Started
               </Button>
             </div>
+            
           </div>
-
-          <div ref={textHoverRef}>
-            <TextHoverEffect text="RYZE" />
-          </div>
+        
+            <TextHoverEffect text="RYZE"  />
+          
+        
           <div ref={marqueeRef}>
             <Marquee />
           </div>

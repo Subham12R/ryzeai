@@ -32,7 +32,7 @@ const RollingNumber: React.FC<StatProps> = ({ value, suffix, label, duration = 2
   }, [value, duration]);
 
   return (
-    <div className="flex flex-col items-center justify-center py-6 px-4">
+    <div className="flex flex-row  gap-2 md:flex-col items-center justify-center py-6 px-4">
       <div className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
         {count.toLocaleString()}{suffix}
       </div>

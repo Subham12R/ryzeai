@@ -1,5 +1,5 @@
-"ise client";
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
     
 const insights = [
   {
@@ -41,12 +41,29 @@ const insights = [
 ];
 
 export const Insights = () => {
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [autoLoad, setAutoLoad] = useState(false);
+
+  useEffect(() => {
+    if (autoLoad && visibleCount < insights.length) {
+      const timer = setTimeout(() => {
+        setVisibleCount((prev) => Math.min(prev + 1, insights.length));
+      }, 700);
+      return () => clearTimeout(timer);
+    }
+  }, [autoLoad, visibleCount]);
+
+  const handleSeeMore = () => {
+    setAutoLoad(true);
+    setVisibleCount((prev) => Math.min(prev + 1, insights.length));
+  };
+
   return (
     <section className="max-w-7xl mx-auto px-6 py-20 ">
       <h2 className="text-5xl font-bold mb-16 text-slate-900">Insights</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-        {insights.map((post, i) => (
+        {insights.slice(0, visibleCount).map((post, i) => (
           <div key={i} className="flex flex-col border-t border-orange-500 pt-6">
             <span className="text-[10px] font-bold tracking-widest text-slate-400 mb-4 uppercase">
               {post.category}
@@ -71,11 +88,17 @@ export const Insights = () => {
         ))}
       </div>
 
-      <div className="mt-16 text-center">
-        <button className="text-sm font-bold text-orange-600 hover:text-orange-700 transition-colors flex items-center justify-center mx-auto gap-2">
-          See more <span>→</span>
-        </button>
-      </div>
+      {visibleCount < insights.length && (
+        <div className="mt-16 text-center">
+          <button
+            className="text-sm font-bold text-orange-600 hover:text-orange-700 transition-colors flex items-center justify-center mx-auto gap-2"
+            onClick={handleSeeMore}
+            disabled={autoLoad}
+          >
+            See more <span>→</span>
+          </button>
+        </div>
+      )}
     </section>
   );
 };
