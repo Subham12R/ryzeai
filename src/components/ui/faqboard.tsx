@@ -32,9 +32,9 @@ const faqData = [
 ];
 
 export default function FAQ() {
-  const [openId, setOpenId] = useState(3);
+  const [openId, setOpenId] = useState<number | null>(3);
 
-  const toggleFAQ = (id) => {
+  const toggleFAQ = (id: number) => {
     setOpenId(openId === id ? null : id);
   };
 
@@ -61,7 +61,7 @@ export default function FAQ() {
                   >
                     {faq.question}
                   </span>
-                  <div className="flex-shrink-0 ml-4">
+                  <div className="shrink-0 ml-4">
                     {isOpen ? (
                       <X className="w-6 h-6 text-yellow-500" strokeWidth={2.5} />
                     ) : (
