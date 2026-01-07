@@ -43,12 +43,10 @@ export default function Navbar() {
     useEffect(() => {
         if (!isOpen) return;
         function handleClick(e: MouseEvent) {
-            if (
-                dropdownRef.current &&
-                !(e.target instanceof Node) ? true : !dropdownRef.current.contains(e.target as Node) &&
-                overlayRef.current &&
-                overlayRef.current.contains(e.target as Node)
-            ) {
+            if (!dropdownRef.current || !overlayRef.current) return;
+            const targetNode = e.target as Node;
+            // If click is outside dropdown but inside overlay, close
+            if (!dropdownRef.current.contains(targetNode) && overlayRef.current.contains(targetNode)) {
                 setIsOpen(false);
             }
         }

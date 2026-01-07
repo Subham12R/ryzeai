@@ -308,7 +308,7 @@ export default function Home() {
               Know More About Us
             </h1>
             <span className="text-lg font-medium text-zinc-500">
-              Discover how Ryze can transform your agency's growth trajectory.
+              Discover how Ryze can transform your agency&apos;s growth trajectory.
             </span>
           </div>
 

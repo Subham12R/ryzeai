@@ -136,7 +136,7 @@ export default function TestimonialsSection() {
                      
                     </div>
                        <div className="bg-zinc-950 rounded-md p-6 text-white shadow-lg flex flex-col items-center justify-center text-center   ">
-                          <p className="font-bold justify-center text-center">"Ryze’s AI-driven ads outperform human optimization by a huge margin."</p>  
+                          <p className="font-bold justify-center text-center">&quot;Ryze&apos;s AI-driven ads outperform human optimization by a huge margin.&quot;</p>  
 
                         <p className="text-sm text-zinc-500">Mathilde Biggs, CEO MotifDigital Agence</p>
                         </div>
