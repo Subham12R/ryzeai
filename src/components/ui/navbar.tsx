@@ -28,7 +28,7 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // GSAP sidebar expand from left
+   
     useEffect(() => {
         if (isOpen && dropdownRef.current) {
             gsap.fromTo(
@@ -39,7 +39,7 @@ export default function Navbar() {
         }
     }, [isOpen]);
 
-    // Outside click to close (fix)
+    
     useEffect(() => {
         if (!isOpen) return;
         function handleClick(e) {
